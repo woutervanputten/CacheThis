@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CacheItLib\CacheCowLib.csproj" OutputItemType="Analyzer" />
-    <ProjectReference Include="..\ClassListGenerator\ClassListGenerator.csproj" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

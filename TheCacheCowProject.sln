@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CachingExample", "CachingExample\CachingExample.csproj", "{CDA1B880-847F-4AD1-8358-4BDDFE43266E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassListGenerator", "ClassListGenerator\ClassListGenerator.csproj", "{AFF7B6E0-F7D4-494E-B203-9F0263A2FCAD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CacheCowLib", "CacheItLib\CacheCowLib.csproj", "{DB4B8133-4327-4451-9500-AF661B1887DF}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{CDA1B880-847F-4AD1-8358-4BDDFE43266E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDA1B880-847F-4AD1-8358-4BDDFE43266E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDA1B880-847F-4AD1-8358-4BDDFE43266E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFF7B6E0-F7D4-494E-B203-9F0263A2FCAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFF7B6E0-F7D4-494E-B203-9F0263A2FCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFF7B6E0-F7D4-494E-B203-9F0263A2FCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFF7B6E0-F7D4-494E-B203-9F0263A2FCAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB4B8133-4327-4451-9500-AF661B1887DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB4B8133-4327-4451-9500-AF661B1887DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB4B8133-4327-4451-9500-AF661B1887DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
