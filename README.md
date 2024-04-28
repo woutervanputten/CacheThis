@@ -1,12 +1,14 @@
 # Cache Cow
+
 Cache Cow is a library that enables the caching of methods of classes.
 
 Example:
 
+```csharp
 public class Minus
 {
     [CacheIt(AbsoluteExpirationRelativeToNow=0.3, SlidingExpirationInSeconds =0.1)]
-    public  virtual long Compute(int a, int b)
+    public virtual long Compute(int a, int b)
     {
         return (long)a - b;
     }
@@ -23,22 +25,10 @@ class Program
 
         Console.WriteLine($"Computed Result: {result}");
         result = minusCached.Compute(2, 1);
-        Console.WriteLine($"Computed Result: {result}");  // Outputs the result with cachingg
+        Console.WriteLine($"Computed Result: {result}");  // Outputs the result with caching
         
         testc(minusCached);
         testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-
     }
 
     static void testc(Minus minusObj)
@@ -46,3 +36,4 @@ class Program
         Console.WriteLine(minusObj.Compute(2,1));
     }
 }
+
