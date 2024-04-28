@@ -12,7 +12,7 @@ using System.Composition;
 using Microsoft.CodeAnalysis.CodeActions;
 using System.Data;
 
-namespace CacheCowLib;
+namespace CacheCowLib.Analyzers;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class CacheItVirtualAnalyzer : DiagnosticAnalyzer
@@ -33,7 +33,7 @@ public class CacheItVirtualAnalyzer : DiagnosticAnalyzer
         isEnabledByDefault: true,
         description: Description);
 
-    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics 
+    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
         => ImmutableArray.Create(Rule);
 
     public override void Initialize(AnalysisContext context)

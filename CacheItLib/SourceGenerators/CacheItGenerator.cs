@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Text;
 
-namespace CacheCowLib
+namespace CacheCowLib.SourceGenerators
 {
     [Generator]
     public class CacheItGenerator : IIncrementalGenerator
@@ -156,7 +156,7 @@ private static string ByteArrayToHexViaStringBuilder(byte[] bytes)
             }
         }
 
-        
+
         private string GenerateMethodInMemoryCachingCode(IMethodSymbol methodSymbol)
         {
             var returnType = methodSymbol.ReturnType.ToString();
