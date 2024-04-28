@@ -23,7 +23,7 @@ namespace CacheCowLib
 
         public sealed override ImmutableArray<string> FixableDiagnosticIds
         {
-            get { return ImmutableArray.Create(CacheItAnalyzer.DiagnosticId); }
+            get { return ImmutableArray.Create(CacheItVirtualAnalyzer.DiagnosticId); }
         }
 
         public sealed override FixAllProvider GetFixAllProvider()

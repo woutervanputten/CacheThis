@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis.CodeActions;
 namespace CacheCowLib;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-public class CacheItAnalyzer : DiagnosticAnalyzer
+public class CacheItVirtualAnalyzer : DiagnosticAnalyzer
 {
     public const string DiagnosticId = "CacheIt001";
 
