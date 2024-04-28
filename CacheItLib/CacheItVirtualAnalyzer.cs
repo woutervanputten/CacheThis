@@ -10,6 +10,7 @@ using System.Threading;
 using Microsoft.CodeAnalysis.CodeFixes;
 using System.Composition;
 using Microsoft.CodeAnalysis.CodeActions;
+using System.Data;
 
 namespace CacheCowLib;
 

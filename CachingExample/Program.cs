@@ -204,6 +204,27 @@ public class Minus
 
         return sequence;
     }
+    
+    [CacheIt(AbsoluteExpirationRelativeToNow = 300)]
+    public virtual int[] FibRecursive(int numberOfTerms)
+    {
+        if (numberOfTerms <= 0)
+        {
+            throw new ArgumentException("Number of terms must be positive.");
+        }
+
+        // Base cases: directly returning the initial elements of the Fibonacci sequence
+        if (numberOfTerms == 1)
+            return new int[] { 0 };
+        if (numberOfTerms == 2)
+            return new int[] { 0, 1 };
+
+        // Recursively build the Fibonacci sequence
+        int[] sequence = FibRecursive(numberOfTerms - 1);
+        Array.Resize(ref sequence, numberOfTerms);
+        sequence[numberOfTerms - 1] = sequence[numberOfTerms - 2] + sequence[numberOfTerms - 3];
+        return sequence;
+    }
 
 }
 
