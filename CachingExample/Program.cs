@@ -223,17 +223,7 @@ class Program
         
         testc(minusCached);
         testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
-        testc(minusCached);
+
 
         var entOpt = new MemoryCacheEntryOptions();
 
