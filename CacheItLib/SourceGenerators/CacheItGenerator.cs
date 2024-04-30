@@ -90,20 +90,70 @@ private string GenerateCacheKey(string methodName, object?[]? args)
     return ByteArrayToHexViaStringBuilder(hashBytes);
 }
 
-/// <summary>
-/// Converts a byte array to a hexadecimal string using a StringBuilder for efficiency.
-/// </summary>
-/// <param name=""bytes"">Byte array to convert.</param>
-/// <returns>Hexadecimal string representation of the byte array.</returns>
-private static string ByteArrayToHexViaStringBuilder(byte[] bytes)
-{
-    var stringBuilder = new StringBuilder(bytes.Length * 2);
-    foreach (byte b in bytes)
+    /// <summary>
+    /// Generates a secure cache key based on the method and its arguments using a specified hash algorithm,
+    /// optimized for performance and memory usage.
+    /// </summary>
+    /// <param name=""methodName"">The method for which the cache key is being generated.</param>
+    /// <param name=""args"">The arguments to the method, if any.</param>
+    /// <param name=""hashAlgorithmName"">The name of the hash algorithm to use (e.g., ""SHA256"", ""SHA1"", ""SHA384"", ""SHA512"", ""SHA3-256"").</param>
+    /// <returns>A string representing the unique and secure cache key.</returns>
+    public string GenerateCacheKey(string methodName, object?[]? args, string hashAlgorithmName=""SHA256"")
     {
-        stringBuilder.Append(b.ToString(""x2""));
+        using var hashAlgorithm = SelectHashAlgorithm(hashAlgorithmName);
+        if (hashAlgorithm == null)
+            throw new ArgumentException(""Invalid or unsupported hash algorithm."");
+
+        using var stream = new MemoryStream();
+        using (var writer = new StreamWriter(stream, Encoding.UTF8, 1024, leaveOpen: true))
+        {
+            writer.Write(methodName);
+            foreach (object? arg in args ?? Array.Empty<object?>())
+            {
+                writer.Write(';');
+                writer.Write(arg?.ToString() ?? string.Empty);
+            }
+        }
+
+        stream.Position = 0; // Reset position to read the stream from the beginning
+        var hashBytes = hashAlgorithm.ComputeHash(stream);
+
+        // Convert byte array to a hexadecimal string efficiently
+        return ByteArrayToHexViaStringBuilder(hashBytes);
     }
-    return stringBuilder.ToString();
-}";
+
+    /// <summary>
+    /// Selects a hash algorithm based on the provided name.
+    /// </summary>
+    /// <param name=""name"">The name of the hash algorithm.</param>
+    /// <returns>A new instance of the specified hash algorithm or SHA256 if the name is unrecognized.</returns>
+    private HashAlgorithm? SelectHashAlgorithm(string name)
+    {
+        return name switch
+        {
+            ""SHA256"" => SHA256.Create(),
+            ""SHA1"" => SHA1.Create(),
+            ""SHA384"" => SHA384.Create(),
+            ""SHA512"" => SHA512.Create(),
+            ""MD5"" => MD5.Create(),
+            _ => SHA256.Create()
+        };
+    }
+
+    /// <summary>
+    /// Converts a byte array to a hexadecimal string using a StringBuilder for efficiency.
+    /// </summary>
+    /// <param name=""bytes"">Byte array to convert.</param>
+    /// <returns>Hexadecimal string representation of the byte array.</returns>
+    private string ByteArrayToHexViaStringBuilder(byte[] bytes)
+    {
+        var stringBuilder = new StringBuilder(bytes.Length * 2);
+        foreach (byte b in bytes)
+        {
+            stringBuilder.Append(b.ToString(""x2""));
+        }
+        return stringBuilder.ToString();
+    }";
 
                 var fullClass = $@"
                     using System;
@@ -128,27 +178,6 @@ private static string ByteArrayToHexViaStringBuilder(byte[] bytes)
                         {hashFunctionsCode}
 
                         {cachedMethods}
-                    }}
-
-                    class TupleComparer : IEqualityComparer<Tuple<object[]>>
-                    {{
-                        public bool Equals(Tuple<object[]> x, Tuple<object[]> y)
-                        {{
-                            return x.Item1.SequenceEqual(y.Item1);
-                        }}
-
-                        public int GetHashCode(Tuple<object[]> obj)
-                        {{
-                            unchecked // Overflow is fine, just wrap
-                            {{
-                                int hash = 17;
-                                foreach (var item in obj.Item1)
-                                {{
-                                    hash = hash * 23 + (item?.GetHashCode() ?? 0);
-                                }}
-                                return hash;
-                            }}
-                        }}
                     }}
                 ";
 

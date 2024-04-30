@@ -11,6 +11,9 @@ namespace CacheCowLib
 
         public double SlidingExpirationInSeconds { get; set; } = -1;  // Default of -1 means not set
 
+        public string HashingMethod { get; set; } = "SHA256";
+
+        [Obsolete]
         public CacheItemPriority Priority { get; set; } = CacheItemPriority.Normal;
 
         // Convert seconds to TimeSpan if needed internally when applying the caching strategy
