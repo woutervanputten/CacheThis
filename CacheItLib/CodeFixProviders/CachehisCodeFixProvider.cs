@@ -5,7 +5,7 @@ using System.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CacheCowLib.Analyzers;
+using CacheThisLib.Analyzers;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
@@ -15,10 +15,10 @@ using Microsoft.CodeAnalysis.Formatting;
 using Microsoft.CodeAnalysis.Rename;
 using Microsoft.CodeAnalysis.Text;
 
-namespace CacheCowLib
+namespace CacheThisLib
 {
-    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(CacheItCodeFixProvider)), Shared]
-    public class CacheItCodeFixProvider : CodeFixProvider
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(CachehisCodeFixProvider)), Shared]
+    public class CachehisCodeFixProvider : CodeFixProvider
     {
         private const string Title = "Make method virtual";
 

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CacheItLib\CacheCowLib.csproj" OutputItemType="Analyzer" />
+    <ProjectReference Include="..\CacheItLib\CacheThisLib.csproj" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

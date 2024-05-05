@@ -5,10 +5,10 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace CacheCowLib;
+namespace CacheThisLib;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-public class CachitRecursiveAnalyser : DiagnosticAnalyzer
+public class CacheThisRecursiveAnalyser : DiagnosticAnalyzer
 {
     public const string DiagnosticId = "CacheIt002";
 

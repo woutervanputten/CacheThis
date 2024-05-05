@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
 
-namespace CacheCowLib
+namespace CacheThisLib
 {
     [AttributeUsage(AttributeTargets.Method, Inherited = true)]
-    public class CacheItAttribute : Attribute
+    public class CacheThisAttribute : Attribute
     {
         // Expose cache duration in seconds for simplicity in attribute usage
         public double AbsoluteExpirationRelativeToNow { get; set; } = -1;  // Default of -1 means not set

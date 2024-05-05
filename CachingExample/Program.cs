@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections.Concurrent;
 using System.Text;
 using System.Security.Cryptography;
-using CacheCowLib;
+using CacheThisLib;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Caching;
@@ -172,20 +172,20 @@ public class Plus : IPlus
 
 public class Minus
 {
-    [CacheIt(AbsoluteExpirationRelativeToNow=0.3, SlidingExpirationInSeconds =0.1)]
+    [CacheThis(AbsoluteExpirationRelativeToNow=0.3, SlidingExpirationInSeconds =0.1)]
     public  virtual long Compute(int a, int b)
     {
         return (long)a - b;
     }
 
-    [CacheIt]
+    [CacheThis]
     public  virtual int TitaTest(int a, int b)
     {
         Thread.Sleep(5000);
         return a + b;
     }
 
-    [CacheIt(AbsoluteExpirationRelativeToNow = 300)]
+    [CacheThis(AbsoluteExpirationRelativeToNow = 300)]
     public  virtual int[] GenerateFibonacciSequence(int numberOfTerms)
     {
         if (numberOfTerms <= 0)
@@ -205,7 +205,7 @@ public class Minus
         return sequence;
     }
     
-    [CacheIt(AbsoluteExpirationRelativeToNow = 300)]
+    [CacheThis(AbsoluteExpirationRelativeToNow = 300)]
     public virtual int[] FibRecursive(int numberOfTerms)
     {
         if (numberOfTerms <= 0)

@@ -12,7 +12,7 @@ using System.Composition;
 using Microsoft.CodeAnalysis.CodeActions;
 using System.Data;
 
-namespace CacheCowLib.Analyzers;
+namespace CacheThisLib.Analyzers;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class CacheItVirtualAnalyzer : DiagnosticAnalyzer

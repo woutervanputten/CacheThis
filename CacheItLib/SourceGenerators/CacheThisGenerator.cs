@@ -11,10 +11,10 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Text;
 
-namespace CacheCowLib.SourceGenerators
+namespace CacheThisLib.SourceGenerators
 {
     [Generator]
-    public class CacheItGenerator : IIncrementalGenerator
+    public class CacheThisGenerator : IIncrementalGenerator
     {
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
@@ -30,7 +30,7 @@ namespace CacheCowLib.SourceGenerators
 
         private static bool HasCacheItAttribute(MethodDeclarationSyntax method)
         {
-            return method.AttributeLists.Any(al => al.Attributes.Any(attr => attr.Name.ToString().Contains("CacheIt")));
+            return method.AttributeLists.Any(al => al.Attributes.Any(attr => attr.Name.ToString().Contains("CacheThis")));
         }
 
         private void Execute(SourceProductionContext context, Compilation compilation, ImmutableArray<MethodDeclarationSyntax> methods)
@@ -47,6 +47,7 @@ namespace CacheCowLib.SourceGenerators
 
             foreach (var group in groupedByClass)
             {
+
                 var className = $"{group.Key.Name}_Cached";
                 var cachedMethods = string.Join("\n", group.Select(x =>
                 {
@@ -164,6 +165,8 @@ private string GenerateCacheKey(string methodName, object?[]? args)
                     using System.Security.Cryptography;
                     using System.Text;
 
+                    namespace {group.Key.ToString().Split('.').FirstOrDefault()};
+
                     public class {className} : {group.Key}
                     {{
                         private readonly {group.Key} _instance;
@@ -192,7 +195,7 @@ private string GenerateCacheKey(string methodName, object?[]? args)
             var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Type} {p.Name}"));
             var parameterNames = string.Join(", ", methodSymbol.Parameters.Select(p => p.Name));
 
-            string attributeName = "CacheCowLib.CacheItAttribute"; // Directly using the fully qualified name as a string
+            string attributeName = "CacheThisLib.CacheThisAttribute"; // Directly using the fully qualified name as a string
                                                                    // Retrieve CacheItAttribute applied on the method, if any
             var cacheAttribute = methodSymbol.GetAttributes()
                                              .FirstOrDefault(a => a.AttributeClass.ToString().Contains(attributeName));
