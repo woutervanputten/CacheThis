@@ -7,6 +7,8 @@
 		<Title>CacheThis</Title>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Authors>WouterVanPutten</Authors>
+		<PackageIcon>CacheThisIcon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/woutervanputten/CacheThis</PackageProjectUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,6 +19,13 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.9.2" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\CacheThisIcon.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
