@@ -1,7 +1,10 @@
-# Cache Cow
-## Introduction
-Cache Cow is a library that enables the caching of methods of classes.
-In the background there is a source generator that scans for the attribute: [CacheThis]
+# CacheThis
+## Overview
+CacheThis is a library designed to facilitate method caching within classes. It operates through a source generator that detects the presence of the `[CacheThis]` attribute.
+
+Simply annotate the methods you wish to cache with the `[CacheThis]` attribute. Subsequently, the source generator will generate code to produce a derived class named `<ClassThatContainsTheMethod>_Cached`.
+
+This generated class retains the original functionality of the defined class while incorporating caching capabilities.
 
 ## Example
 
