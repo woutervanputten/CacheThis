@@ -1,14 +1,14 @@
 # Cache Cow
 ## Introduction
 Cache Cow is a library that enables the caching of methods of classes.
-In the background there is a source generator that scans for the attribute: [CacheIt]
+In the background there is a source generator that scans for the attribute: [CacheThis]
 
 ## Example
 
 ```csharp
 public class Minus
 {
-    [CacheIt(AbsoluteExpirationRelativeToNow=0.3, SlidingExpirationInSeconds =0.1)]
+    [CacheThis(AbsoluteExpirationRelativeToNow=0.3, SlidingExpirationInSeconds =0.1)]
     public virtual long Compute(int a, int b)
     {
         return (long)a - b;
@@ -38,10 +38,10 @@ class Program
 }
 ```
 
-## The [CacheIt] attribute
-Adding the [CacheIt] attribute will signal to the source generator that the method should be cached.
+## The [CacheThis] attribute
+Adding the [CacheThis] attribute will signal to the source generator that the method should be cached.
 
-### [CacheIt] attribute Parameters
+### [CacheThis] attribute Parameters
 The following parameters are supported currently
 
 * AbsoluteExpirationRelativeToNow
