@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-		<Title>TheCacheCowProject</Title>
+		<Title>CacheThis</Title>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Authors>WouterVanPutten</Authors>
 	</PropertyGroup>
