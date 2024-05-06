@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>0.9.0.0</Version>
 		<LangVersion>latest</LangVersion>
 		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 		<Title>CacheThis</Title>
@@ -9,6 +10,14 @@
 		<Authors>WouterVanPutten</Authors>
 		<PackageIcon>CacheThisIcon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/woutervanputten/CacheThis</PackageProjectUrl>
+		<Description>CacheThis is a library designed to facilitate method caching within classes. It operates through a source generator that detects the presence of the [CacheThis] attribute. Simply annotate the methods you wish to cache with the [CacheThis] attribute. Subsequently, the source generator will generate code to produce a derived class named &lt;ClassThatContainsTheMethod&gt;_Cached.</Description>
+		<PackageId>CacheThis</PackageId>
+		<Product>ChacheThis</Product>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>cache;caching;source generator;</PackageTags>
+		<RepositoryUrl>https://github.com/woutervanputten/CacheThis.git</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>First Upload. Some Attribute Options are still Experimental.</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,7 +31,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Resources\CacheThisIcon.png">
+	  <None Include="Resources\CacheThisIcon.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\README.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>
